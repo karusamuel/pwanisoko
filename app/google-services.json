@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "744687521021",
+    "firebase_url": "https://pwani-soko.firebaseio.com",
+    "project_id": "pwani-soko",
+    "storage_bucket": "pwani-soko.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744687521021:android:bb13828c0252884e",
+        "android_client_info": {
+          "package_name": "com.example.pwanisoko"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "744687521021-abmcrlhb588033h5ajsdvdh2gohe1ilc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pwanisoko",
+            "certificate_hash": "6f237f6116bdc43f62cad53d3b266326a1bb65cd"
+          }
+        },
+        {
+          "client_id": "744687521021-3rqn5m5be46lnguanfm7lqmiimea9uin.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCe9KKvRtemCr5nQyJhzZTByZakdka6tg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "744687521021-3rqn5m5be46lnguanfm7lqmiimea9uin.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
