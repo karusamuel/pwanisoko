@@ -40,7 +40,7 @@ public class AdsViewRecyclerAdapter extends RecyclerView.Adapter<AdsViewRecycler
     @Override
     public int getItemCount() {
 
-        return 20;
+        return list.size();
     }
 
     class MyHolder extends RecyclerView.ViewHolder{

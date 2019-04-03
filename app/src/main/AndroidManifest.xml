@@ -15,7 +15,9 @@
         <activity android:name=".ConfirmAdd" />
         <activity android:name=".SetLocation" />
         <activity android:name=".SetPrice" />
-        <activity android:name=".AddadImage" />
+        <activity android:name=".AddadImage" >
+
+        </activity>
         <activity android:name=".AddDescriptionActivity" />
         <activity android:name=".ChooseCategory" />
         <activity android:name=".SellActivity" />
@@ -40,6 +42,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

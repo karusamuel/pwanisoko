@@ -7,6 +7,30 @@ public class Advert {
     private int adPrice;
     private String userId;
 
+    public Advert() {
+    }
+
+    public Advert(String url, String aTitle, String adDescription, int adPrice, String userId, String date, String adlocation, String adCategory) {
+        this.url = url;
+        this.aTitle = aTitle;
+        this.adDescription = adDescription;
+        this.adPrice = adPrice;
+        this.userId = userId;
+        this.date = date;
+        this.adlocation = adlocation;
+        this.adCategory = adCategory;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    private  String date;
+
     public String getUserId() {
         return userId;
     }

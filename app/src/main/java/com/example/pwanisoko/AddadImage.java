@@ -34,7 +34,7 @@ public class AddadImage extends AppCompatActivity {
     public void next(View view){
 
         if(uri!=null){
-        Intent intent = new Intent(this,ConfirmAdd.class);
+        Intent intent = new Intent(this,SetPrice.class);
         intent.putExtra("Title",title);
         intent.putExtra("Category",category);
         intent.putExtra("Description",description);
@@ -107,6 +107,7 @@ public void onActivityResult(int requestCode,int resultCode,Intent data){
             Uri selectedImageUri = data.getData();
             imageView.setImageURI(selectedImageUri);
             uri = data.getData();
+
 
 
 
