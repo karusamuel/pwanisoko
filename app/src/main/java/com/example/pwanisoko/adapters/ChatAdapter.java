@@ -1,13 +1,16 @@
 package com.example.pwanisoko.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.pwanisoko.ChatActivity;
 import com.example.pwanisoko.R;
 import com.example.pwanisoko.models.ChatList;
 import com.example.pwanisoko.models.ChatsModel;
@@ -37,8 +40,17 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChatAdapter.MyHolder myHolder, int i) {
-        myHolder.chatID.setText(list.remove(i).getUserName());
+    public void onBindViewHolder(@NonNull ChatAdapter.MyHolder myHolder, final int i) {
+        myHolder.chatID.setText(list.get(i).getUserName());
+        myHolder.chatStrip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,ChatActivity.class);
+                intent.putExtra("ReceiverID",list.get(i).getSenderId());
+                context.startActivity(intent);
+
+            }
+        });
 
     }
 
@@ -49,9 +61,11 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyHolder> {
 
     class MyHolder extends RecyclerView.ViewHolder{
         TextView chatID;
+        LinearLayout chatStrip;
         public MyHolder(@NonNull View itemView) {
             super(itemView);
             chatID = itemView.findViewById(R.id.chatID);
+            chatStrip = itemView.findViewById(R.id.chatStrip);
 
 
         }

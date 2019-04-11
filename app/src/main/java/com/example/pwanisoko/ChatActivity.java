@@ -4,15 +4,18 @@ import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.pwanisoko.adapters.MessageAdapter;
 import com.example.pwanisoko.models.AppUser;
 import com.example.pwanisoko.models.ChatList;
 import com.example.pwanisoko.models.ChatsModel;
+import com.example.pwanisoko.objects.LayoutManager;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -55,6 +58,8 @@ public class ChatActivity extends AppCompatActivity {
          editText = findViewById(R.id.message);
          messageList = findViewById(R.id.messageList);
          sendButton = findViewById(R.id.sendButton);
+         messageList.setLayoutManager(new LayoutManager().getLinearLayoutManager(this, LinearLayoutManager.VERTICAL));
+
 
 
 
@@ -104,17 +109,18 @@ public class ChatActivity extends AppCompatActivity {
                          senderRef.child(receiverID).push().setValue(model);
                          receiverRef.child(mAuth.getUid()).push().setValue(model);
                          lastChatSender = database.getReference().child("Last_Chat").child(mAuth.getUid()).child(receiverID);
-                         lastChatSender.setValue(new ChatList(receiver.getName(),message,new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()),false));
+                         lastChatSender.setValue(new ChatList(receiver.getName(),message,new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()),mAuth.getUid(),receiverID,false));
 
 
                          lastChatReceiver = database.getReference().child("Last_Chat").child(receiverID).child(mAuth.getUid());
-                         lastChatReceiver.setValue(new ChatList(sender.getName(),message,new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()),true))
+                         lastChatReceiver.setValue(new ChatList(sender.getName(),message,new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()),mAuth.getUid(),mAuth.getUid(),true))
                                  .addOnSuccessListener(new OnSuccessListener<Void>() {
                                      @Override
                                      public void onSuccess(Void aVoid) {
 
                                          Toast.makeText(getApplicationContext(),"sent",Toast.LENGTH_SHORT).show();
                                          editText.setText("");
+                                         loadChats();
 
                                      }
                                  })
@@ -147,7 +153,7 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     public void loadChats(){
-      database.getReference().child("chats").child(mAuth.getUid()).child(receiverID).addValueEventListener(new ValueEventListener() {
+      database.getReference().child("Chats").child(mAuth.getUid()).child(receiverID).addValueEventListener(new ValueEventListener() {
           @Override
           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
               chatsModels = new ArrayList<>();

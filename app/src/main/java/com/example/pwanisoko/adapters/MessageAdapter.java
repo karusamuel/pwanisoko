@@ -45,6 +45,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyHolder
             myHolder.messsageTextOut.setText(model.getText());
             myHolder.messageUserOut.setText(model.getText());
             myHolder.timeTextOut.setText(model.getText());
+            myHolder.outMessage.setVisibility(View.VISIBLE);
+
 
 
 
@@ -55,6 +57,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyHolder
             myHolder.messsageTextIn.setText(model.getText());
             myHolder.messageUserIn.setText(model.getText());
             myHolder.timeTextIn.setText(model.getText());
+            myHolder.inMessage.setVisibility(View.VISIBLE);
 
 
 

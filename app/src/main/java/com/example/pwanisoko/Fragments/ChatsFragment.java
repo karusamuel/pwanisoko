@@ -29,6 +29,7 @@ public class ChatsFragment extends Fragment {
     FirebaseAuth mAuth;
     DatabaseReference mRef;
     ArrayList<ChatList> list;
+    ArrayList<String> userList;
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         mDatabase = FirebaseDatabase.getInstance();
@@ -48,7 +49,9 @@ public class ChatsFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list = new ArrayList<>();
+                userList = new ArrayList<>();
                 for (DataSnapshot snapshot:dataSnapshot.getChildren()){
+
                      list .add(snapshot.getValue(ChatList.class));
 
 

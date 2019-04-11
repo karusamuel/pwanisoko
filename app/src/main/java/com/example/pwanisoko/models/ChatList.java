@@ -5,7 +5,39 @@ public class ChatList {
     String userName;
     String lastMessage;
     String messageTime;
+    String senderId;
     boolean newMessage = true;
+    public ChatList() {
+    }
+
+
+    public ChatList(String userName, String lastMessage, String messageTime, String senderId, String receiverId, boolean newMessage) {
+        this.userName = userName;
+        this.lastMessage = lastMessage;
+        this.messageTime = messageTime;
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+        this.newMessage = newMessage;
+    }
+
+    String receiverId;
+
+    public String getSenderId() {
+        return senderId;
+    }
+
+    public void setSenderId(String senderId) {
+        this.senderId = senderId;
+    }
+
+    public String getReceiverId() {
+        return receiverId;
+    }
+
+    public void setReceiverId(String receiverId) {
+        this.receiverId = receiverId;
+    }
+
 
     public boolean isNewMessage() {
         return newMessage;
@@ -29,13 +61,6 @@ public class ChatList {
 
     public String getLastMessage() {
         return lastMessage;
-    }
-
-    public ChatList(String userName, String lastMessage, String messageTime, boolean newMessage) {
-        this.userName = userName;
-        this.lastMessage = lastMessage;
-        this.messageTime = messageTime;
-        this.newMessage = newMessage;
     }
 
     public void setLastMessage(String lastMessage) {
