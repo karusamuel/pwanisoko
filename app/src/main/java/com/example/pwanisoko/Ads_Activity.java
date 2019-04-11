@@ -26,7 +26,7 @@ public class Ads_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ads_);
-        reference = FirebaseDatabase.getInstance().getReference().child("adverts");
+        reference = FirebaseDatabase.getInstance().getReference().child("Adverts");
         recyclerView = findViewById(R.id.ads_display_recyclerView);
         recyclerView.setLayoutManager(new LayoutManager().getGridLayoutManager(this,2));
         category = getIntent().getStringExtra("Category");

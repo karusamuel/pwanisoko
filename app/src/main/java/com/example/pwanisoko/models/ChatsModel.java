@@ -1,27 +1,31 @@
 package com.example.pwanisoko.models;
 
 public class ChatsModel{
-private String  userName;
     private String text;
-    private String time;
+    private String receiverId;
+    private String senderId;
+
+
+
 
     public ChatsModel() {
     }
 
-    public ChatsModel(String userName, String text, String time, String senderID) {
-        this.userName = userName;
+    public ChatsModel(String text, String receiverId, String senderId) {
         this.text = text;
-        this.time = time;
-        this.senderID = senderID;
+        this.receiverId = receiverId;
+        this.senderId = senderId;
     }
 
-    public String getUserName() {
-        return userName;
+
+    public String getReceiverId() {
+        return receiverId;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setReceiverId(String receiverId) {
+        this.receiverId = receiverId;
     }
+
 
     public String getText() {
         return text;
@@ -31,22 +35,12 @@ private String  userName;
         this.text = text;
     }
 
-    public String getTime() {
-        return time;
+
+    public String getSenderId() {
+        return senderId;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setSenderId(String senderId) {
+        this.senderId = senderId;
     }
-
-    public String getSenderID() {
-        return senderID;
-    }
-
-    public void setSenderID(String senderID) {
-        this.senderID = senderID;
-    }
-
-    private String senderID;
-
 }

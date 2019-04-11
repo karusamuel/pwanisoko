@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/confirm_adTitle" />
 
     <Button
-        android:id="@+id/confirm_Post"
+        android:id="@+id/uploadAd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -68,7 +68,6 @@
         android:layout_marginRight="32dp"
         android:layout_marginBottom="32dp"
         android:background="@color/colorPrimary"
-        android:onClick="post"
         android:text="Post"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

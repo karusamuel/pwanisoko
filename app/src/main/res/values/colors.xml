@@ -4,4 +4,39 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="d8">#D8D8D8</color>
+    <color name="green">#918967</color>
+
+    <color name="colorGray">#694189</color>
+
+    <color name="colorTransparent">#00000000</color>
+
+    <color name="colorDarkGrey">#6c6c6c</color>
+
+    <color name="colorPink">#FF4081</color>
+    //dashboard colors
+    <color name="dashboardColorPrimary">#FFC107</color>
+
+    <color name="dashboardColorPrimaryDark">#ffa000</color>
+
+    <color name="dashboardBackgroundColor">#fcfcfc</color>
+
+    <color name="dash_light_gray">#ededed</color>
+
+    <color name="deepPurple">#7c4dff</color>
+
+    <color name="yellow">#ffb300</color>
+
+    <color name="dashboardGreen">#00bfa5</color>
+
+    <color name="dashboardColorAccent">#FF4081</color>
+
+    <color name="darkBlue">#23283a</color>
+
+    <color name="testColorBlue">#152b38</color>
+
+    <color name="dashboardPink">#fe104d</color>
+
+    <color name="black_overlay">#66000000</color>
+
+    <color name="red">#de7272</color>
 </resources>

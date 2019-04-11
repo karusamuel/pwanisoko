@@ -1,6 +1,10 @@
 package com.example.pwanisoko.models;
 
-public class Advert {
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class Advert implements Serializable {
     private String url;
     private String aTitle;
     private String adDescription;

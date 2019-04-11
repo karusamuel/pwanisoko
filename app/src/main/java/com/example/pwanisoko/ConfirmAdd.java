@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +16,7 @@ import com.example.pwanisoko.models.Advert;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -40,13 +42,22 @@ public class ConfirmAdd extends AppCompatActivity {
     String date="";
     String userId;
     String location="kibaoni";
+    Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_add);
         FirebaseApp.initializeApp(this);
         mdb = FirebaseDatabase.getInstance();
-        reference = mdb.getReference().child("adverts");
+        reference = mdb.getReference().child("Adverts");
+        userId = FirebaseAuth.getInstance().getUid();
+        button = findViewById(R.id.uploadAd);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                post();
+            }
+        });
 
         title= getIntent().getStringExtra("Title");
          category= getIntent().getStringExtra("Category");
@@ -73,7 +84,7 @@ public class ConfirmAdd extends AppCompatActivity {
 
         storage = FirebaseStorage.getInstance();
     }
-    public boolean post(View view){
+    public boolean post(){
          postImage();
         return false;
     }
@@ -93,6 +104,7 @@ public class ConfirmAdd extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
 
                     }
                 });
