@@ -70,9 +70,10 @@
                 style="@style/account_style"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:orientation="horizontal"
-                android:weightSum="1.0"
                 android:onClick="toNotifications"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="1.0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -80,26 +81,24 @@
 
                 <ImageView
 
-                    android:layout_width="0dp"
-                    android:src="@drawable/notification"
-                    android:layout_weight="0.2"
                     style="@style/icon_style"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
+                    android:src="@drawable/notification"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.8"
                     android:layout_gravity="center_vertical"
-                    android:orientation="vertical"
-                    >
+                    android:layout_weight="0.8"
+                    android:orientation="vertical">
 
                     <TextView
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Notifications"
-                         />
+                        android:text="Notifications" />
 
                     <TextView
 
@@ -113,9 +112,10 @@
                 style="@style/account_style"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:orientation="horizontal"
-                android:weightSum="1.0"
                 android:onClick="toMynetwork"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="1.0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -123,19 +123,18 @@
 
                 <ImageView
 
-                    android:layout_width="0dp"
-                    android:src="@drawable/my_network"
-                    android:layout_weight="0.2"
                     style="@style/icon_style"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
+                    android:src="@drawable/my_network"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.8"
                     android:layout_gravity="center_vertical"
-                    android:orientation="vertical"
-                    >
+                    android:layout_weight="0.8"
+                    android:orientation="vertical">
 
                     <TextView
 

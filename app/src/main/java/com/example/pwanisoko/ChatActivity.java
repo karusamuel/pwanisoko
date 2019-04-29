@@ -109,11 +109,11 @@ public class ChatActivity extends AppCompatActivity {
                          senderRef.child(receiverID).push().setValue(model);
                          receiverRef.child(mAuth.getUid()).push().setValue(model);
                          lastChatSender = database.getReference().child("Last_Chat").child(mAuth.getUid()).child(receiverID);
-                         lastChatSender.setValue(new ChatList(receiver.getName(),message,new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()),mAuth.getUid(),receiverID,false));
+                         lastChatSender.setValue(new ChatList(receiver.getName(),message,new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()),receiverID,mAuth.getUid(),false));
 
 
                          lastChatReceiver = database.getReference().child("Last_Chat").child(receiverID).child(mAuth.getUid());
-                         lastChatReceiver.setValue(new ChatList(sender.getName(),message,new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()),mAuth.getUid(),mAuth.getUid(),true))
+                         lastChatReceiver.setValue(new ChatList(sender.getName(),message,new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()),mAuth.getUid(),receiverID,true))
                                  .addOnSuccessListener(new OnSuccessListener<Void>() {
                                      @Override
                                      public void onSuccess(Void aVoid) {
@@ -163,6 +163,7 @@ public class ChatActivity extends AppCompatActivity {
 
               }
               messageList.setAdapter(new MessageAdapter(getApplicationContext(),chatsModels,mAuth.getUid(),receiver.getName()));
+              messageList.scrollToPosition(chatsModels.size());
 
 
           }

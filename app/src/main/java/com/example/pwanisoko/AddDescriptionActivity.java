@@ -48,7 +48,6 @@ public class AddDescriptionActivity extends AppCompatActivity {
                         moveNext = false;
 
                 }else {
-                    next.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
 
                     moveNext = true;
                 }

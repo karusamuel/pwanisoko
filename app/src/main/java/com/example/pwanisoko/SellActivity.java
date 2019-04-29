@@ -44,8 +44,8 @@ public class SellActivity extends AppCompatActivity {
                     adTitleTextInputLayout.setError("Ad tittle can not be less than 5 characters");
                     moveNext = false;
 
+
                 }else {
-                    next.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                     moveNext = true;
                 }
 

@@ -11,7 +11,7 @@ import android.widget.ListView;
 public class ChooseCategory extends AppCompatActivity {
     ListView category;
 
-    String[] categoryArray = new String[]{"sam","sam","sam","sam","sam","sam","sam","sam",};
+    String[] categoryArray = new String[]{"Electronics","Food & Beverages","Books","Stationary","Entertainment","Fashion and Design","Services e.g salon","Others",};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

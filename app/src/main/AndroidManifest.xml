@@ -12,6 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ViewProfile"></activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" />
         <activity android:name=".SigninActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,21 +24,30 @@
             </intent-filter>
         </activity>
         <activity android:name=".FullAdView" />
-        <activity android:name=".ChatActivity" />
+        <activity
+            android:name=".ChatActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".Ads_Activity" />
         <activity android:name=".ConfirmAdd" />
-        <activity android:name=".SetLocation" />
-        <activity android:name=".SetPrice" />
+        <activity
+            android:name=".SetLocation"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".SetPrice"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".AddadImage" />
-        <activity android:name=".AddDescriptionActivity" />
-        <activity android:name=".ChooseCategory" />
-        <activity android:name=".SellActivity" />
+        <activity
+            android:name=".AddDescriptionActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ChooseCategory"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".SellActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".FeedbackActivity"
             android:label="Feedback" />
-        <activity
-            android:name=".SettingsActivity"
-            android:label="Setting" />
         <activity
             android:name=".MyNetworkActivity"
             android:label="My Network" />
@@ -44,9 +57,7 @@
         <activity
             android:name=".EditProfile"
             android:label="Edit Profile" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

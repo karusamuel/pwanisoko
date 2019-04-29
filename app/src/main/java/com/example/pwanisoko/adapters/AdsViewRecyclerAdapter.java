@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.pwanisoko.FullAdView;
 import com.example.pwanisoko.R;
 import com.example.pwanisoko.models.Advert;
@@ -44,6 +45,8 @@ public class AdsViewRecyclerAdapter extends RecyclerView.Adapter<AdsViewRecycler
     public void onBindViewHolder(@NonNull MyHolder myHolder, final int position) {
 
          myHolder.adTitle.setText(list.get(position).getaTitle());
+         myHolder.adPrice.setText(Integer.toString(list.get(position).getAdPrice()));
+         Glide.with(context.getApplicationContext()).load(list.get(position).getUrl()).placeholder(R.drawable.chat_icon).into(myHolder.adImage);
 
 
 
@@ -76,7 +79,7 @@ public class AdsViewRecyclerAdapter extends RecyclerView.Adapter<AdsViewRecycler
             super(itemView);
 
             ad = itemView.findViewById(R.id.ad);
-            adImage = itemView.findViewById(R.id.advert_image);
+            adImage = itemView.findViewById(R.id.adImage);
             adTitle = itemView.findViewById(R.id.adTitle);
             adPrice = itemView.findViewById(R.id.adPrice);
 

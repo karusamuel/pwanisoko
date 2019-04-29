@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -42,6 +43,8 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyHolder> {
     @Override
     public void onBindViewHolder(@NonNull ChatAdapter.MyHolder myHolder, final int i) {
         myHolder.chatID.setText(list.get(i).getUserName());
+        myHolder.lastMessage.setText(list.get(i).getLastMessage());
+        myHolder.time.setText(list.get(i).getMessageTime());
         myHolder.chatStrip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,12 +63,16 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyHolder> {
     }
 
     class MyHolder extends RecyclerView.ViewHolder{
-        TextView chatID;
+        TextView chatID,lastMessage,time;
+        ImageView imageView;
+
         LinearLayout chatStrip;
         public MyHolder(@NonNull View itemView) {
             super(itemView);
             chatID = itemView.findViewById(R.id.chatID);
             chatStrip = itemView.findViewById(R.id.chatStrip);
+            lastMessage = itemView.findViewById(R.id.chatLastMessage);
+            time = itemView.findViewById(R.id.chat_date);
 
 
         }

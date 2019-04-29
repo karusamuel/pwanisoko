@@ -1,5 +1,6 @@
 package com.example.pwanisoko;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.OpenableColumns;
@@ -9,9 +10,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.pwanisoko.models.Advert;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -38,16 +42,29 @@ public class ConfirmAdd extends AppCompatActivity {
     String fileName;
     String description;
     String uri;
+    ImageView imageView;
     int price;
     String date="";
     String userId;
     String location="kibaoni";
     Button button;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_add);
         FirebaseApp.initializeApp(this);
+        priceText = findViewById(R.id.confirmAdPrice);
+        descrptionText = findViewById(R.id.confirm_adDescription);
+        categoryText = findViewById(R.id.confirm_AdCategory);
+        titleText = findViewById(R.id.confirm_adTitle);
+        imageView = findViewById(R.id.confirm_imageView);
+        progressBar = findViewById(R.id.progressBarConfirmAdd);
+
+
+
+
+
         mdb = FirebaseDatabase.getInstance();
         reference = mdb.getReference().child("Adverts");
         userId = FirebaseAuth.getInstance().getUid();
@@ -55,7 +72,9 @@ public class ConfirmAdd extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 post();
+
             }
         });
 
@@ -67,6 +86,30 @@ public class ConfirmAdd extends AppCompatActivity {
          date= new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
          uri1= Uri.parse(uri);
          Uri returnUri = uri1;
+
+
+//         set values to ui
+        priceText.setText(Integer.toString(price));
+        categoryText.setText(category);
+        titleText.setText(title);
+        descrptionText.setText(description);
+        Glide.with(this).load(uri1).placeholder(R.drawable.chat_icon)
+                .into(imageView);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         Cursor returnCursor =
                 getContentResolver().query(returnUri, null, null, null, null);
         /*
@@ -91,14 +134,14 @@ public class ConfirmAdd extends AppCompatActivity {
 
     private boolean postImage(){
 
-       final StorageReference reference= storage.getReference().child("images").child(fileName);
-                reference.
+       final StorageReference storageReference = storage.getReference().child("images").child(fileName);
+                storageReference.
                 putFile(uri1).
                 addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Log.e("Url",reference.getDownloadUrl().toString());
-                        postData(reference.getDownloadUrl().toString());
+                        Log.e("Url",storageReference.getDownloadUrl().toString());
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -106,6 +149,13 @@ public class ConfirmAdd extends AppCompatActivity {
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
 
+                    }
+                });
+
+                storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                            postData(uri.toString());
                     }
                 });
 
@@ -120,14 +170,18 @@ public class ConfirmAdd extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(getApplicationContext(),"posted succesfully",Toast.LENGTH_LONG).show();
-                        finish();
+                        progressBar.setVisibility(View.GONE);
+                        Toast.makeText(getApplicationContext(),"posted successfully",Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                progressBar.setVisibility(View.GONE);
 
-                Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Failed Please Try Again Later",Toast.LENGTH_LONG).show();
 
             }
         });

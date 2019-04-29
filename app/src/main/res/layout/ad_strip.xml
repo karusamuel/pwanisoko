@@ -28,52 +28,57 @@
                 android:id="@+id/adImage"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:scaleType="fitCenter"
-
-                tools:srcCompat="@color/colorPrimary" />
+                android:scaleType="centerCrop"
+                android:src="@color/colorPrimary"
+                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 android:weightSum="1.0">
 
                 <TextView
                     android:id="@+id/adTitle"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="19dp"
+                    android:maxLines="1"
+                    android:textColor="@color/colorPrimary"
                     android:layout_weight="0.8"
                     android:text="TextView" />
 
-                <android.support.constraint.ConstraintLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2">
-
-                    <com.airbnb.lottie.LottieAnimationView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:lottie_autoPlay="false"
-                        app:lottie_loop="false"
-                        app:lottie_rawRes="@raw/twitter_heart" />
-
-
-                </android.support.constraint.ConstraintLayout>
-
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/adPrice"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="TextView" />
+                android:weightSum="1.0"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:maxLines="1"
+                    android:layout_width="0dp"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="0.25"
+                    android:text="Kshs" />
+
+                <TextView
+                    android:id="@+id/adPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textSize="18dp"
+                    android:maxLines="1"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="0.75"
+                    android:text="TextView" />
+            </LinearLayout>
 
         </LinearLayout>
     </android.support.v7.widget.CardView>

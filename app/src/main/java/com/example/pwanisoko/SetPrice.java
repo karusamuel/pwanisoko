@@ -32,10 +32,10 @@ public class SetPrice extends AppCompatActivity {
         next.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                String adPrice = price.getEditText().getText().toString();
-                if(adPrice.length()>0){
+                int adPrice =Integer.parseInt(price.getEditText().getText().toString());
+                if(adPrice>0){
                     Intent intent = new Intent(getApplicationContext(),ConfirmAdd.class);
-                    intent.putExtra("Description",adPrice);
+                    intent.putExtra("Description",description);
                     intent.putExtra("Title",category);
                     intent.putExtra("Category",title);
                     intent.putExtra("Image",image);

@@ -31,18 +31,6 @@
             app:civ_border_width="2dp"
             tools:src="@drawable/user" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/floatingActionButtonAddImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            app:fabSize="auto"
-            android:onClick="addImage"
-            app:layout_anchor="@+id/profile_image"
-            app:layout_anchorGravity="bottom|center"
-            app:srcCompat="@android:drawable/ic_menu_camera"
-            tools:layout_editor_absoluteX="186dp"
-            tools:layout_editor_absoluteY="269dp" />
     </android.support.design.widget.CoordinatorLayout>
 
 
@@ -77,6 +65,7 @@
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:hint="user name" />
     </android.support.design.widget.TextInputLayout>
 
@@ -97,7 +86,8 @@
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="describe your self" />
+            android:enabled="false"
+             />
     </android.support.design.widget.TextInputLayout>
 
     <TextView
@@ -110,6 +100,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="User name"
+        android:visibility="gone"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -162,23 +153,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneNo" />
-
-    <android.support.design.button.MaterialButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:textColor="@android:color/black"
-        android:text="save"
-        android:onClick="update"
-        app:rippleColor="@android:color/holo_green_light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
 
 </android.support.constraint.ConstraintLayout>
