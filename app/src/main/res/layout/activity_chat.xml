@@ -47,7 +47,7 @@
             android:inputType="textPersonName"
             android:maxLines="4"
             android:padding="10dp"
-            android:text="Message"
+            android:hint="Message"
             android:textColor="@android:color/white" />
 
         <ImageView

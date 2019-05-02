@@ -18,6 +18,7 @@ import com.example.pwanisoko.Fragments.myADS_Fragments.Favourites;
 import com.example.pwanisoko.Fragments.myADS_Fragments.MyAdsFragmentAdapter;
 import com.example.pwanisoko.R;
 import com.example.pwanisoko.adapters.AdsViewRecyclerAdapter;
+import com.example.pwanisoko.adapters.MyAdsViewRecyclerAdapter;
 import com.example.pwanisoko.models.Advert;
 import com.example.pwanisoko.objects.LayoutManager;
 import com.google.firebase.auth.FirebaseAuth;
@@ -66,7 +67,7 @@ public class MyADS extends Fragment {
 
                 }
                 if (list.size()>0){
-                    recyclerView.setAdapter(new AdsViewRecyclerAdapter(getContext(),list));
+                    recyclerView.setAdapter(new MyAdsViewRecyclerAdapter(getContext(),list));
                     hide.setVisibility(View.GONE);
                 }else{
                     hide.setVisibility(View.VISIBLE);

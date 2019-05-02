@@ -39,6 +39,10 @@ public class Ads_Activity extends AppCompatActivity {
                         list.add(shot.getValue(Advert.class));
                     }else{
 
+                        if(shot.getValue(Advert.class).getAdCategory().equals(category)){
+                            list.add(shot.getValue(Advert.class));
+                        }
+
 
                     }
 
