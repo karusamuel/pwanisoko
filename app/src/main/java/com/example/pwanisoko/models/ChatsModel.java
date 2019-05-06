@@ -4,6 +4,8 @@ public class ChatsModel{
     private String text;
     private String receiverId;
     private String senderId;
+    private String date;
+    private String name;
 
 
 
@@ -11,12 +13,13 @@ public class ChatsModel{
     public ChatsModel() {
     }
 
-    public ChatsModel(String text, String receiverId, String senderId) {
+    public ChatsModel(String text, String receiverId, String senderId, String date, String name) {
         this.text = text;
         this.receiverId = receiverId;
         this.senderId = senderId;
+        this.date = date;
+        this.name = name;
     }
-
 
     public String getReceiverId() {
         return receiverId;
@@ -42,5 +45,21 @@ public class ChatsModel{
 
     public void setSenderId(String senderId) {
         this.senderId = senderId;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

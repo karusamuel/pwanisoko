@@ -37,6 +37,7 @@ public class MyADS extends Fragment {
     String category;
     FirebaseAuth mAuth;
     TextView hide;
+    ArrayList<String> keys;
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -57,9 +58,11 @@ public class MyADS extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list = new ArrayList<>();
+                keys = new ArrayList<>();
                 for(DataSnapshot shot:dataSnapshot.getChildren()){
                     Advert advert = shot.getValue(Advert.class);
                     if(advert.getUserId().equals(mAuth.getUid())){
+                        keys.add(shot.getKey());
                        list.add(advert);
                     }
 
@@ -67,7 +70,7 @@ public class MyADS extends Fragment {
 
                 }
                 if (list.size()>0){
-                    recyclerView.setAdapter(new MyAdsViewRecyclerAdapter(getContext(),list));
+                    recyclerView.setAdapter(new MyAdsViewRecyclerAdapter(getContext(),list,keys));
                     hide.setVisibility(View.GONE);
                 }else{
                     hide.setVisibility(View.VISIBLE);

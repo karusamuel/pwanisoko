@@ -25,8 +25,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_layout);
-
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
         setFragment(new ExploreFragment());
+        bottomNavigationView.setItemIconTintList(null);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public Boolean setFragment(Fragment fragment){
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);Fragment fragment1 = new ExploreFragment();
+        Fragment fragment1 = new ExploreFragment();
         FragmentManager manager = this.getSupportFragmentManager();
         manager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.homeMainView,fragment).commit();
         bottomNavigationView.setLabelVisibilityMode(View.VISIBLE);

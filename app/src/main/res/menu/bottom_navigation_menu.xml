@@ -4,28 +4,28 @@
 
     <item android:title="Explore"
         android:id="@+id/explore"
-        android:icon="@drawable/cloud_computing"
+        android:icon="@drawable/explore_makenzi"
         app:showAsAction="withText|always"
 
         />
     <item android:title="CHATS"
         android:id="@+id/chats"
-        android:icon="@drawable/chat_icon"
+        android:icon="@drawable/chat_makenzi"
         app:showAsAction="withText|always"
         />
     <item android:title="SELL"
         android:id="@+id/sell"
-        android:icon="@drawable/barter"
+        android:icon="@drawable/sell_makenzi"
         app:showAsAction="withText|always"
         />
     <item android:title="MY ADS"
         android:id="@+id/my_ads"
-        android:icon="@drawable/ads"
+        android:icon="@drawable/add_makenzi"
         app:showAsAction="withText|always"
         />
     <item android:title="MY ACCOUNT"
         android:id="@+id/my_account"
-        android:icon="@drawable/user"
+        android:icon="@drawable/user_makenzi"
         app:showAsAction="withText|always"
         />
 </menu>

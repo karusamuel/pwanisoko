@@ -102,7 +102,7 @@ public class ChatActivity extends AppCompatActivity {
 
 
                          final String message = editText.getText().toString().trim();
-                         ChatsModel model = new ChatsModel(message,receiverID,mAuth.getUid());
+                         ChatsModel model = new ChatsModel(message,receiverID,mAuth.getUid(),new SimpleDateFormat("dd-MM-yyyy hh:mm", Locale.getDefault()).format(new Date()),sender.getName());
 
                          senderRef = database.getReference().child("Chats").child(mAuth.getUid());
                          receiverRef = database.getReference().child("Chats").child(receiverID);

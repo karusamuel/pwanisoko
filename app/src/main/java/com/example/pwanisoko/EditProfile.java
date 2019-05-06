@@ -13,6 +13,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -66,11 +67,13 @@ public class EditProfile extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot!=null) {
                     AppUser appUser = dataSnapshot.getValue(AppUser.class);
+                    if(appUser!=null) {
+                        Glide.with(getApplicationContext()).load(appUser.getPhotoUrl()).placeholder(R.drawable.user).dontAnimate().into(profileImage);
+                        phoneNo.setText(appUser.getPhoneNumber());
+                        description.getEditText().setText(appUser.getDescription());
+                        username.getEditText().setText(appUser.getName());
 
-                    Glide.with(getApplicationContext()).load(appUser.getPhotoUrl()).placeholder(R.drawable.user).dontAnimate().into(profileImage);
-                    phoneNo.setText(appUser.getPhoneNumber());
-                    description.getEditText().setText(appUser.getDescription());
-                    username.getEditText().setText(appUser.getName());
+                    }
                 }
 
             }
@@ -203,7 +206,7 @@ public class EditProfile extends AppCompatActivity {
                         }
                     });
 
-            storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            reference1.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
                     update(uri.toString());
@@ -218,7 +221,7 @@ public class EditProfile extends AppCompatActivity {
     }
 
     public void update(String url){
-        reference.child("profile_url").setValue(url)
+        reference.child("photoUrl").setValue(url)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

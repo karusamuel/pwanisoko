@@ -189,7 +189,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
-                        android:text="privacy and logout" />
+                        android:text="privacy" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -200,6 +200,7 @@
                 android:orientation="horizontal"
                 android:weightSum="1.0"
                 android:onClick="toFeedback"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

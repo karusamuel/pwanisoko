@@ -46,7 +46,7 @@ public class AdsViewRecyclerAdapter extends RecyclerView.Adapter<AdsViewRecycler
 
          myHolder.adTitle.setText(list.get(position).getaTitle());
          myHolder.adPrice.setText(Integer.toString(list.get(position).getAdPrice()));
-         Glide.with(context.getApplicationContext()).load(list.get(position).getUrl()).placeholder(R.drawable.chat_icon).into(myHolder.adImage);
+         Glide.with(context.getApplicationContext()).load(list.get(position).getUrl()).placeholder(R.drawable.add_image_makenzi).into(myHolder.adImage);
 
 
 

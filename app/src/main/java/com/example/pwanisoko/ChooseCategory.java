@@ -8,10 +8,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.pwanisoko.adapters.CustomList;
+
 public class ChooseCategory extends AppCompatActivity {
     ListView category;
 
-    String[] categoryArray = new String[]{"Electronics","Food & Beverages","Books","Stationary","Entertainment","Fashion and Design","Services e.g salon","Others",};
+    String[] categoryArray = new String[]{"Electronics","Food & Beverages","Books","Stationary","Entertainment","Fashion and Design","Services e.g salon","Others"};
+    int[] images = new int[]{R.drawable.electronics_makenzi,R.drawable.food_makenzi,R.drawable.books_makenzi,R.drawable.stationery_makenzi,R.drawable.entertaintment
+    ,R.drawable.makenzi_fashion,R.drawable.services_makenzi,R.drawable.others_makenzi};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,20 +24,19 @@ public class ChooseCategory extends AppCompatActivity {
         final String title = getIntent().getStringExtra("Title");
 
         category = findViewById(R.id.choose_category);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.category_strip,R.id.categoryTextview,categoryArray);
         category.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(),AddDescriptionActivity.class);
                 intent.putExtra("Title",title);
-                intent.putExtra("Category",categoryArray);
+                intent.putExtra("Category",categoryArray[position]);
 
                 startActivity(intent);
 
             }
         });
 
-        category.setAdapter(adapter);
+        category.setAdapter(new CustomList(images,categoryArray,this));
     }
 
 }

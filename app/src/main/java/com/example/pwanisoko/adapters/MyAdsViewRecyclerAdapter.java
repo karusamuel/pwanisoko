@@ -27,9 +27,11 @@ public class MyAdsViewRecyclerAdapter extends RecyclerView.Adapter<MyAdsViewRecy
     private Context context;
     private ArrayList<Advert> list;
     DatabaseReference reference;
-    public MyAdsViewRecyclerAdapter(Context context, ArrayList<Advert> list) {
+    private  ArrayList<String> keys;
+    public MyAdsViewRecyclerAdapter(Context context, ArrayList<Advert> list, ArrayList<String> keys) {
         this.context = context;
         this.list = list;
+        this.keys = keys;
         reference = FirebaseDatabase.getInstance().getReference();
 
 
@@ -49,7 +51,7 @@ public class MyAdsViewRecyclerAdapter extends RecyclerView.Adapter<MyAdsViewRecy
 
          myHolder.adTitle.setText(list.get(position).getaTitle());
          myHolder.adPrice.setText(Integer.toString(list.get(position).getAdPrice()));
-         Glide.with(context.getApplicationContext()).load(list.get(position).getUrl()).placeholder(R.drawable.chat_icon).into(myHolder.adImage);
+         Glide.with(context.getApplicationContext()).load(list.get(position).getUrl()).placeholder(R.drawable.add_image_makenzi).into(myHolder.adImage);
 
 
 
@@ -67,7 +69,7 @@ public class MyAdsViewRecyclerAdapter extends RecyclerView.Adapter<MyAdsViewRecy
         myHolder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reference.child("Adverts").child(list.get(position).getaTitle()).getParent().removeValue();
+                reference.child("Adverts").child(keys.get(position)).removeValue();
             }
         });
 

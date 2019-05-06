@@ -29,7 +29,7 @@ public class ChatsFragment extends Fragment {
     FirebaseAuth mAuth;
     DatabaseReference mRef;
     ArrayList<ChatList> list;
-    ArrayList<String> userList;
+    ArrayList<String> keys;
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         mDatabase = FirebaseDatabase.getInstance();
@@ -49,9 +49,9 @@ public class ChatsFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list = new ArrayList<>();
-                userList = new ArrayList<>();
+                keys = new ArrayList<>();
                 for (DataSnapshot snapshot:dataSnapshot.getChildren()){
-
+                    keys.add(snapshot.getKey());
                      list .add(snapshot.getValue(ChatList.class));
 
 
@@ -59,7 +59,7 @@ public class ChatsFragment extends Fragment {
 
 
                 }
-                recyclerView.setAdapter(new ChatAdapter(getContext(),list));
+                recyclerView.setAdapter(new ChatAdapter(getContext(),list,keys));
             }
 
             @Override

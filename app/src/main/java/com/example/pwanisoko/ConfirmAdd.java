@@ -82,7 +82,7 @@ public class ConfirmAdd extends AppCompatActivity {
          category= getIntent().getStringExtra("Category");
          description= getIntent().getStringExtra("Description");
          uri=getIntent().getStringExtra("Image");
-         price= getIntent().getIntExtra("price",0);
+         price= getIntent().getIntExtra("Price",0);
          date= new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
          uri1= Uri.parse(uri);
          Uri returnUri = uri1;

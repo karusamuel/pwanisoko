@@ -35,8 +35,9 @@ public class Ads_Activity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list = new ArrayList<>();
                 for(DataSnapshot shot:dataSnapshot.getChildren()){
-                    if(category==null) {
+                    if(category==null || category.equals("All")) {
                         list.add(shot.getValue(Advert.class));
+
                     }else{
 
                         if(shot.getValue(Advert.class).getAdCategory().equals(category)){

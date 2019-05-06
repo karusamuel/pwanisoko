@@ -43,8 +43,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyHolder
         if(model.getSenderId().equals(uid)){
             myHolder.inMessage.setVisibility(View.GONE);
             myHolder.messsageTextOut.setText(model.getText());
-            myHolder.messageUserOut.setText(model.getText());
-            myHolder.timeTextOut.setText(model.getText());
+            myHolder.messageUserOut.setText(model.getName());
+            myHolder.timeTextOut.setText(model.getDate());
             myHolder.outMessage.setVisibility(View.VISIBLE);
 
 
@@ -55,7 +55,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyHolder
         }else {
             myHolder.outMessage.setVisibility(View.GONE);
             myHolder.messsageTextIn.setText(model.getText());
-            myHolder.messageUserIn.setText(model.getText());
+            myHolder.messageUserIn.setText(model.getName());
             myHolder.timeTextIn.setText(model.getText());
             myHolder.inMessage.setVisibility(View.VISIBLE);
 
