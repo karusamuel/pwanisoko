@@ -40,8 +40,8 @@ public class SellActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
-                if(s.toString().length()<5){
-                    adTitleTextInputLayout.setError("Ad tittle can not be less than 5 characters");
+                if(s.toString().length()<3){
+                    adTitleTextInputLayout.setError("Ad tittle can not be less than 3 characters");
                     moveNext = false;
 
 

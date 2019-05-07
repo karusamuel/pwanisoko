@@ -40,7 +40,7 @@ public class FullAdView extends AppCompatActivity {
         Glide.with(this).load(advert.getUrl()).placeholder(R.drawable.chat_icon).into(imageView);
         adTitle.setText(advert.getaTitle());
         adCategory.setText(advert.getAdCategory());
-        adDescription.setText(advert.getAdCategory());
+        adDescription.setText(advert.getAdDescription());
         adPrice.setText(Integer.toString(advert.getAdPrice()));
 
         profileButton.setOnClickListener(new View.OnClickListener() {
